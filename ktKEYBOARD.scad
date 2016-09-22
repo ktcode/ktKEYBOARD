@@ -86,25 +86,12 @@ translate( [key_pitch_x*0.25, 0, 0] ){
                     wall_y( 7.25, 0, 2 );
                     wall_x( 0, 7.25, 0 );
                     
-                    //wall_x( 0, 6, 5 );
                     wall_x( 0, 6, 4 );
-                    //wall_x( 0, 6.5, 3 );
                     wall_x( -0.25, 6.75, 2 );
-                    //wall_x( 0, 7.25, 1 );
                 }
                 union(){
-                    through_mini( 1.5, 0.5 );
-                    through_mini( 3.5, 0.5 );
-                    through_mini( 1.5, 1.5 );
-                    through_mini( 3.5, 1.5 );
-                    through( 1.5, 2.5 );
-                    through( 3.5, 2.5 );
-                    through( 1.5, 3.5 );
-                    through( 3.5, 3.5 );
-                    through( 1.5, 4.5 );
-                    through( 3.5, 4.5 );
-                    through( 1.5, 5.5 );
-                    through( 3.5, 5.5 );
+                    for( i = [-0.5:0.5:6] ) through_mini( i, 1.5 );
+                    for( i = [0.2:1:6] ) through( i, 3.5 );
                 }
             }
         }
@@ -147,25 +134,12 @@ translate( [key_pitch_x*7.25, 0, 0] ){
                     wall_y( 9.5, 0, 1 );
                     wall_x( 1.25, 9.5, 0);
                     
-                    //wall_x( 0, 9, 5 );
                     wall_x( 0, 9, 4 );
-                    //wall_x( 0.75, 9, 3 );
                     wall_x( 1.25, 9, 2 );
-                    //wall_x( 1.25, 9, 1 );
                 }
                 union(){
-                    through_mini( 3, 0.5 );
-                    through_mini( 5, 0.5 );
-                    through_mini( 3, 1.5 );
-                    through_mini( 5, 1.5 );
-                    through( 3, 2.5 );
-                    through( 5, 2.5 );
-                    through( 3, 3.5 );
-                    through( 5, 3.5 );
-                    through( 3, 4.5 );
-                    through( 5, 4.5 );
-                    through( 3, 5.5 );
-                    through( 5, 5.5 );
+                    for( i = [1:0.5:8] ) through_mini( i, 1.5 );
+                    for( i = [0.6:1:8] ) through( i, 3.5 );
                 }            }
         }
         
