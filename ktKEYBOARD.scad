@@ -189,6 +189,9 @@ module key( x, y, w=1 ){
             translate( [0, hole_y/2, panel_thick/2 - 1.5] )
             rotate( [0, 0, 180] )
             recess();
+            translate( [0, 0, panel_thick + 2] )
+            rotate( [180, 0, 45] )
+            cylinder( hole_y*1.1, hole_y*1.1, 00, $fn=4 );
         }
     }
 }
