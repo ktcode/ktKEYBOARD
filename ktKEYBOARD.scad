@@ -86,11 +86,11 @@ translate( [key_pitch_x*0.25, 0, 0] ){
                     wall_y( 7.25, 0, 2 );
                     wall_x( 0, 7.25, 0 );
                     
-                    wall_x( 0, 6, 5 );
+                    //wall_x( 0, 6, 5 );
                     wall_x( 0, 6, 4 );
-                    wall_x( 0, 6.5, 3 );
+                    //wall_x( 0, 6.5, 3 );
                     wall_x( -0.25, 6.75, 2 );
-                    wall_x( 0, 7.25, 1 );
+                    //wall_x( 0, 7.25, 1 );
                 }
                 union(){
                     through( 1.5, 0.5 );
@@ -147,11 +147,11 @@ translate( [key_pitch_x*7.25, 0, 0] ){
                     wall_y( 9.5, 0, 1 );
                     wall_x( 1.25, 9.5, 0);
                     
-                    wall_x( 0, 9, 5 );
+                    //wall_x( 0, 9, 5 );
                     wall_x( 0, 9, 4 );
-                    wall_x( 0.75, 9, 3 );
+                    //wall_x( 0.75, 9, 3 );
                     wall_x( 1.25, 9, 2 );
-                    wall_x( 1.25, 9, 1 );
+                    //wall_x( 1.25, 9, 1 );
                 }
                 union(){
                     through( 3, 0.5 );
