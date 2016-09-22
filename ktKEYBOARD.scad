@@ -93,10 +93,10 @@ translate( [key_pitch_x*0.25, 0, 0] ){
                     //wall_x( 0, 7.25, 1 );
                 }
                 union(){
-                    through( 1.5, 0.5 );
-                    through( 3.5, 0.5 );
-                    through( 1.5, 1.5 );
-                    through( 3.5, 1.5 );
+                    through_mini( 1.5, 0.5 );
+                    through_mini( 3.5, 0.5 );
+                    through_mini( 1.5, 1.5 );
+                    through_mini( 3.5, 1.5 );
                     through( 1.5, 2.5 );
                     through( 3.5, 2.5 );
                     through( 1.5, 3.5 );
@@ -110,7 +110,7 @@ translate( [key_pitch_x*0.25, 0, 0] ){
         }
         
         rotate( a=-angle, v=[1, 0, 0] )
-        translate( [-key_pitch_x*3, 0, -front_height-50] )
+        translate( [-key_pitch_x*3, -5, -front_height-42] )
         cube( [key_pitch_x*13, key_pitch_y*8, 50] );
     }
 }
@@ -154,10 +154,10 @@ translate( [key_pitch_x*7.25, 0, 0] ){
                     //wall_x( 1.25, 9, 1 );
                 }
                 union(){
-                    through( 3, 0.5 );
-                    through( 5, 0.5 );
-                    through( 3, 1.5 );
-                    through( 5, 1.5 );
+                    through_mini( 3, 0.5 );
+                    through_mini( 5, 0.5 );
+                    through_mini( 3, 1.5 );
+                    through_mini( 5, 1.5 );
                     through( 3, 2.5 );
                     through( 5, 2.5 );
                     through( 3, 3.5 );
@@ -170,7 +170,7 @@ translate( [key_pitch_x*7.25, 0, 0] ){
         }
         
         rotate( a=-angle, v=[1, 0, 0] )
-        translate( [-key_pitch_x*3, 0, -front_height-50] )
+        translate( [-key_pitch_x*3, -5, -front_height-42] )
         cube( [key_pitch_x*15, key_pitch_y*8, 50] );
     }
 }
@@ -231,12 +231,20 @@ module wall_y( x, y1, y2 ){
 
 module through( x, y ){
     translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, -(panel_thick/2)] ){
-        translate( [0, 0, -panel_thick - 5/2] ){
+        translate( [0, 0, -panel_thick - 2.5] ){
             cube( [2/cos(45), 10, 4], center=true );
             translate( [0, 0, 2] )
             rotate( [0, 45, 0] )
             cube( [2, 10, 2], center=true );
                 translate( [0, 0, -2] )
+            rotate( [0, 45, 0] )
+            cube( [2, 10, 2], center=true );
+        }
+    }
+}
+module through_mini( x, y ){
+    translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, -panel_thick] ){
+        translate( [0, 0, -panel_thick/2 ] ){
             rotate( [0, 45, 0] )
             cube( [2, 10, 2], center=true );
         }
