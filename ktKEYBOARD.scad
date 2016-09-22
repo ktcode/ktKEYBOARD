@@ -92,6 +92,7 @@ translate( [key_pitch_x*0.25, 0, 0] ){
                 union(){
                     for( i = [-0.5:0.5:6] ) through_mini( i, 1.5 );
                     for( i = [0.2:1:6] ) through( i, 3.5 );
+                    through_usb( 2.5, 5.5 );
                 }
             }
         }
@@ -140,7 +141,9 @@ translate( [key_pitch_x*7.25, 0, 0] ){
                 union(){
                     for( i = [1:0.5:8] ) through_mini( i, 1.5 );
                     for( i = [0.6:1:8] ) through( i, 3.5 );
-                }            }
+                    through_usb( 4, 5.5 );
+                }
+            }
         }
         
         rotate( a=-angle, v=[1, 0, 0] )
@@ -210,7 +213,7 @@ module through( x, y ){
             translate( [0, 0, 2] )
             rotate( [0, 45, 0] )
             cube( [2, 10, 2], center=true );
-                translate( [0, 0, -2] )
+            translate( [0, 0, -2] )
             rotate( [0, 45, 0] )
             cube( [2, 10, 2], center=true );
         }
@@ -221,6 +224,16 @@ module through_mini( x, y ){
         translate( [0, 0, -panel_thick/2 ] ){
             rotate( [0, 45, 0] )
             cube( [2, 10, 2], center=true );
+        }
+    }
+}
+module through_usb( x, y ){
+    translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, -panel_thick - 10] ){
+        translate( [0, 0, -panel_thick - 2.5] ){
+            cube( [2.5/cos(45), 10, 10], center=true );
+            translate( [0, 0, 5] )
+            rotate( [0, 45, 0] )
+            cube( [2.5, 10, 2.5], center=true );
         }
     }
 }
