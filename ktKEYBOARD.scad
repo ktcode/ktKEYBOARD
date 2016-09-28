@@ -162,17 +162,17 @@ module key( x, y, w=1 ){
             cube( [key_pitch_x*w, key_pitch_y, panel_thick], center=true ) ;
             cube( [hole_x, hole_y, panel_thick + gap2], center=true );
             translate( [0, -hole_y/2, panel_thick/2 - 1.5] )
-            recess();
+            claw();
             translate( [0, hole_y/2, panel_thick/2 - 1.5] )
             rotate( [0, 0, 180] )
-            recess();
+            claw();
             translate( [0, 0, panel_thick + 2] )
             rotate( [180, 0, 45] )
             cylinder( hole_y*1.1, hole_y*1.1, 00, $fn=4 );
         }
     }
 }
-module recess(){
+module claw(){
     translate( [-2, -1, -1] ){
         difference(){
             union(){
