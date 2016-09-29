@@ -40,8 +40,7 @@ r_row3_x = 0.5;
 r_row2_x = 0.75;
 r_row1_x = 1.25;
 r_row0_x = 1.25;
-r_func3_x = r_row3_x + 7;
-r_func2_x = r_row2_x + 7;
+r_enter_x = r_row2_x + 7;
 r_func1_x = r_row1_x + 6;
 
 
@@ -112,8 +111,7 @@ translate( [key_pitch_x*7.25, 0, 0] ){
             for( i = [0:6] ) key( r_row3_x + i, row3_y, 1 );
             for( i = [0:6] ) key( r_row2_x + i, row2_y, 1 );
             for( i = [0:5] ) key( r_row1_x + i, row1_y, 1 );
-            key( r_func3_x, row3_y, 1.5 );
-            key( r_func2_x, row2_y, 1.25 );
+            key_enter( r_enter_x, row2_y );
             fill( r_func1_x, row1_y, 0.25 );
             key( r_func1_x + 0.25, row1_y, 1 );
             fill( r_func1_x + 1.25, row1_y, 0.5 );
@@ -145,6 +143,8 @@ translate( [key_pitch_x*7.25, 0, 0] ){
                 }
             }
         }
+            
+        support_x2( r_enter_x, row2_y + 0.5, 1.25, -90 );
         
         rotate( a=-angle, v=[1, 0, 0] )
         translate( [-key_pitch_x*3, -5, -front_height-42] )
@@ -185,6 +185,63 @@ module claw(){
         }
     }
 }
+
+
+
+module key_enter( x, y ){
+    translate( [key_pitch_x*x + key_pitch_x/2 + key_pitch_x*(1.25 - 1)/2, key_pitch_y*y + key_pitch_y/2, -(panel_thick/2)] ){
+        difference(){
+            union(){
+                cube( [key_pitch_x*1.25, key_pitch_y, panel_thick], center=true ) ;
+                translate( [-key_pitch_x*(1.25 - 1)/2, key_pitch_y, 0] )
+                cube( [key_pitch_x*1.5, key_pitch_y, panel_thick], center=true ) ;
+            }
+            translate( [0, key_pitch_x/2, 0] ){
+                rotate( [0, 0, 90] ){
+                    cube( [hole_x, hole_y, panel_thick + gap2], center=true );
+                    translate( [0, -hole_y/2, panel_thick/2 - 1.5] )
+                    claw();
+                    translate( [0, hole_y/2, panel_thick/2 - 1.5] )
+                    rotate( [0, 0, 180] )
+                    claw();
+                }
+            }
+        }
+    }
+}
+
+
+
+module support_x2( x, y, w=1, r=0 ){
+    translate( [key_pitch_x*x + key_pitch_x/2 + key_pitch_x*(w - 1)/2, key_pitch_y*y + key_pitch_y/2, -(panel_thick/2)] ){
+        rotate( [0, 0, r] ){
+            translate( [12, 0, 0] )
+            support();
+            translate( [-12, 0, 0] )
+            support();
+            translate( [0, -0, 0] )
+            cube( [23.8, 8, panel_thick + gap2], center=true );
+            translate( [0, -5.5, -1/2] )
+            cube( [23.8, 9, 5 + gap2 -1], center=true );
+        }
+    }
+}
+module support(){
+    translate( [0, -0.5, 0] ){
+        cube( [6.6, 12.5, 5 + gap2], center=true );
+        translate( [0, -3.5/2, -1/2] )
+        cube( [6.6, 12.5 + 3.5, 5 + gap2 -1], center=true );
+        translate( [0, hole_y/2 - 0.75, panel_thick/2 - 1.5] )
+        rotate( [0, 0, 180] )
+        claw();
+    }
+    translate( [6.6/2, 1, 0] )
+    cube( [1*2, 2, 5 + gap2], center=true );
+    translate( [-6.6/2, 1, 0] )
+    cube( [1*2, 2, 5 + gap2], center=true );
+}
+
+
 
 module fill( x, y, w ){
     translate( [key_pitch_x*x + key_pitch_x/2 +key_pitch_x*(w - 1)/2, key_pitch_y*y + key_pitch_y/2, -(panel_thick/2)] ){
