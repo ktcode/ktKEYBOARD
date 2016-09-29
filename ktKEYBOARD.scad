@@ -26,7 +26,7 @@ l_func2a_x = -0.25;
 l_func2b_x = 0.75;
 l_func1a_x = -0.25;
 l_func1b_x = 0.75;
-l_func0_x = 0;
+l_func0_x = 0.5;
 l_row5_x = 1;
 l_row4_x = 1;
 l_row3_x = 1.5;
@@ -55,8 +55,7 @@ translate( [key_pitch_x*0.25, 0, 0] ){
             key( l_func2b_x, row2_y );
             key( l_func1a_x, row1_y );
             key( l_func1b_x, row1_y, 1.5 );
-            key( l_func0_x, row0_y, 1.5 );
-            fill( l_func0_x + 1.5, row0_y, 0.25 );
+            key( l_func0_x, row0_y, 1.25 );
             for( i = [0:4] ) key( l_row5_x + i, row5_y );
             for( i = [0:4] ) key( l_row4_x + i, row4_y );
             for( i = [0:4] ) key( l_row3_x + i, row3_y );
@@ -74,8 +73,8 @@ translate( [key_pitch_x*0.25, 0, 0] ){
                     wall_y( 0, 3, 6 );
                     wall_x( -0.25, 0, 3 );
                     wall_y( -0.25, 1, 3 );
-                    wall_x( -0.25, 0, 1 );
-                    wall_y( 0, 0, 1 );
+                    wall_x( -0.25, 0.5, 1 );
+                    wall_y( 0.5, 0, 1 );
                     wall_y( 6, 4, 6 );
                     wall_x( 6, 6.5, 4 );
                     wall_y( 6.5, 3, 4 );
@@ -83,7 +82,7 @@ translate( [key_pitch_x*0.25, 0, 0] ){
                     wall_y( 6.75, 2, 3 );
                     wall_x( 6.75, 7.25, 2 );
                     wall_y( 7.25, 0, 2 );
-                    wall_x( 0, 7.25, 0 );
+                    wall_x( 0.5, 7.25, 0 );
                     
                     wall_x( 0, 6, 4 );
                     wall_x( -0.25, 6.75, 2 );
