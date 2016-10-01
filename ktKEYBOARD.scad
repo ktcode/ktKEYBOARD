@@ -302,10 +302,10 @@ module through_mini( x, y ){
 module through_usb( x, y ){
     translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, -panel_thick - 10] ){
         translate( [0, 0, -panel_thick - 2.5] ){
-            cube( [2.5/cos(45), 10, 10], center=true );
-            translate( [0, 0, 5] )
-            rotate( [0, 45, 0] )
-            cube( [2.5, 10, 2.5], center=true );
+            cube( [3.5, 10, 10], center=true );
+            translate( [0, 5, 5] )
+            rotate( [90, 0, 0] )
+            cylinder( 10, 1.75, 1.75, $fn=50 );
         }
     }
 }
