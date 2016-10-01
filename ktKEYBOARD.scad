@@ -45,6 +45,13 @@ r_func1_x = r_row1_x + 6;
 
 
 
+translate( [0, 50, 0] ){
+    board_base( 0.5, 5.5 );
+}
+translate( [key_pitch_x*8, 50, 0] ){
+    board_base( -0.5, 5.5 );
+}
+
 translate( [0, 0, 0] ){
     difference(){
         union(){
@@ -89,7 +96,8 @@ translate( [0, 0, 0] ){
                     wall_x( 0, 7, 4 );
                     wall_x( 1, 7.75, 2 );
                 }
-                through_usb( 3.5, 5.5 );
+                through_board_base( 0.5, 5.5 );
+                through_usb( 6, 5.5 );
                 for( i = [0.2:1:7] ) through( i, 3.5 );
                 for( i = [1:0.5:7] ) through_mini( i, 1.5 );
             }
@@ -137,7 +145,8 @@ translate( [key_pitch_x*8, 0, 0] ){
                     wall_x( 0, 9, 4 );
                     wall_x( 1.25, 9, 2 );
                 }
-                through_usb( 4, 5.5 );
+                through_board_base( -0.5, 5.5 );
+                through_usb( 5, 5.5 );
                 for( i = [0.6:1:8] ) through( i, 3.5 );
                 for( i = [1:0.5:8] ) through_mini( i, 1.5 );
             }
@@ -297,6 +306,80 @@ module through_usb( x, y ){
             translate( [0, 0, 5] )
             rotate( [0, 45, 0] )
             cube( [2.5, 10, 2.5], center=true );
+        }
+    }
+}
+
+
+
+module board_base( x, y ){
+    translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, 0] ){
+        translate( [5, -32, -12] ){
+            difference(){
+                union(){
+                    rotate( a=-angle, v=[1, 0, 0] ){
+                        difference(){
+                            union(){
+                                cube( [74, 30, 2] );
+                                translate( [0, 28.8, -4] )
+                                cube( [74, 4, 6] );
+                                translate( [6, 5, -2] )
+                                cylinder( 2, 5, 5, $fn=50 );
+                                translate( [69, 5, -2] )
+                                cylinder( 2, 5, 5, $fn=50 );
+                                translate( [14, 12.5, -2] )
+                                cylinder( 2, 5, 5, $fn=50 );
+                                translate( [47.5, 15, -2] )
+                                cylinder( 2, 5, 5, $fn=50 );
+                            }
+                            translate( [6, 5, -2-gap1] )
+                            cylinder( 4+gap2, 1.8, 1, $fn=50  );
+                            translate( [69, 5, -2-gap1] )
+                            cylinder( 4+gap2, 1.8, 1, $fn=50  );
+                            translate( [14, 12.5, -2-gap1] )
+                            cylinder( 4+gap2, 1.8, 1, $fn=50  );
+                            translate( [47.5, 15, -2-gap1] )
+                            cylinder( 4+gap2, 1.8, 1, $fn=50  );
+                        }
+                    }
+                }
+                translate( [0-gap1, 30.75+gap1, -9] )
+                cube( [74+gap2, 4, 9] );
+            }
+            difference(){
+                union(){
+                    rotate( a=-angle, v=[1, 0, 0] ){
+                        rotate( [-90, 90, 0] )
+                        translate( [-0.5, -10, 30] )
+                        cylinder( 5, 3, 3, $fn=3 );
+                        rotate( [-90, 90, 0] )
+                        translate( [-0.5, -37.5, 30] )
+                        cylinder( 5, 3, 3, $fn=3 );
+                        rotate( [-90, 90, 0] )
+                        translate( [-0.5, -65, 30] )
+                        cylinder( 5, 3, 3, $fn=3 );
+                    }
+                }
+                translate( [0-gap1, 33.25+gap1, -9] )
+                cube( [82+gap2, 4, 9] );
+            }
+        }
+    }
+}
+module through_board_base( x, y ){
+    translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, 0] ){
+        translate( [5, -32, -12] ){
+            rotate( a=-angle, v=[1, 0, 0] ){
+                rotate( [-90, 90, 0] )
+                translate( [-0.5, -10, 30] )
+                cylinder( 5, 3.5, 3, $fn=3 );
+                rotate( [-90, 90, 0] )
+                translate( [-0.5, -37.5, 30] )
+                cylinder( 5, 3.5, 3, $fn=3 );
+                rotate( [-90, 90, 0] )
+                translate( [-0.5, -65, 30] )
+                cylinder( 5, 3.5, 3, $fn=3 );
+            }
         }
     }
 }
