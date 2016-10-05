@@ -1,0 +1,12 @@
+,Y0,Y1,Y2,Y3,Y4,Y5,Y6,Y7,Y8,Y9,YA,YB,YC,YD,YE,YF,YG,YH
+X0,"半角/
+全角",F1,F2,5,6,^,F8,-,F9,Insert,Delete,PgUp,Home,,,L-Ctrl,,F6
+X1,1,2,,4,7,8,9,0,F10,F12,F11,PgDn,End,PrtScn,,,Calc,Volx
+X2,Q,"Caps
+Lock",E,R,U,I,O,P,¥,N8,N7,N9,N+,ScrLk,,,,Menu
+X3,Tab,,F3,,,,F7,,BS,N5,N4,N6,,,L-Shift,,,Vol+
+X4,A,,D,F,J,K,L,+,,N2,N1,N3,NEnter,,,,,W
+X5,ESC,,F4,G,H,F6,変換,:,F5,N0,,N.,↑,L-Alt,,,,Play
+X6,Z,X,C,V,M,<,>,],Enter,N/,"Num
+Lock",N*,Pause,,R-Shift,R-Ctrl,Fn,
+X7,無変換,,,B,N,¥_,カナ,/,Space,→,↓,N-,←,R-Alt,,,,
