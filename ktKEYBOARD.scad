@@ -93,13 +93,11 @@ translate( [0, 0, 0] ){
                     wall_y( 8.25, 0, 2 );
                     wall_x( 1.5, 8.25, 0 );
                     
-                    wall_x( 0, 7, 4 );
-                    wall_x( 1, 7.75, 2 );
+                    wall_x( 3, 4, 4 );
+                    wall_x( 3, 4, 2 );
                 }
                 through_board_base( 0.5, 5.5 );
                 through_usb( 6, 5.5 );
-                for( i = [0.2:1:7] ) through( i, 3.5 );
-                for( i = [1:0.5:7] ) through_mini( i, 1.5 );
             }
         }
         
@@ -142,13 +140,11 @@ translate( [key_pitch_x*8, 0, 0] ){
                     wall_y( 9.5, 0, 1 );
                     wall_x( 1.25, 9.5, 0);
                     
-                    wall_x( 0, 9, 4 );
-                    wall_x( 1.25, 9, 2 );
+                    wall_x( 4, 5, 4 );
+                    wall_x( 4, 5, 2 );
                 }
                 through_board_base( -0.5, 5.5 );
                 through_usb( 5, 5.5 );
-                for( i = [0.6:1:8] ) through( i, 3.5 );
-                for( i = [1:0.5:8] ) through_mini( i, 1.5 );
             }
         }
         
@@ -278,27 +274,6 @@ module wall_y( x, y1, y2 ){
 
 
 
-module through( x, y ){
-    translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, -(panel_thick/2)] ){
-        translate( [0, 0, -panel_thick - 2.5] ){
-            cube( [2/cos(45), 10, 4], center=true );
-            translate( [0, 0, 2] )
-            rotate( [0, 45, 0] )
-            cube( [2, 10, 2], center=true );
-            translate( [0, 0, -2] )
-            rotate( [0, 45, 0] )
-            cube( [2, 10, 2], center=true );
-        }
-    }
-}
-module through_mini( x, y ){
-    translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, -panel_thick] ){
-        translate( [0, 0, -panel_thick/2 ] ){
-            rotate( [0, 45, 0] )
-            cube( [2, 10, 2], center=true );
-        }
-    }
-}
 module through_usb( x, y ){
     translate( [key_pitch_x*x + key_pitch_x/2, key_pitch_y*y + key_pitch_y/2, -panel_thick - 10] ){
         translate( [0, 0, -panel_thick - 2.5] ){
