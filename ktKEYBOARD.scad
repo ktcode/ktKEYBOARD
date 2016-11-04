@@ -18,83 +18,100 @@ row3_y = 3;
 row2_y = 2;
 row1_y = 1;
 row0_y = 0;
+rowm1_y = -1;
 
+l_row5m_x = -2;
+l_row4m_x = -2;
+l_row3m_x = -2;
+l_row2m_x = -2;
+l_row1m_x = -2;
+l_row0m_x = -1;
 l_func5_x = 1;
-l_func4a_x = 0;
-l_func4b_x = 1;
-l_func3a_x = 0;
-l_func3b_x = 1;
+l_func4_x = 1;
+l_func3_x = 1;
 l_func2_x = 1;
 l_func1_x = 1;
-l_func0_x = 1.5;
+l_func0_x = 1;
 l_row5_x = 2;
 l_row4_x = 2;
 l_row3_x = 2.5;
 l_row2_x = 2.75;
 l_row1_x = 3.25;
-l_row0_x = 2.75;
+l_row0_x = 1;
 
 r_row5_x = 0;
 r_row4_x = 0;
 r_row3_x = 0.5;
 r_row2_x = 0.75;
 r_row1_x = 1.25;
-r_row0_x = 1.25;
+r_row0_x = 0.75;
 r_enter_x = r_row2_x + 7;
 r_func1_x = r_row1_x + 6;
+r_rowm1_x = 0.5;
 
 
-
-translate( [0, 50, 0] ){
+translate( [0, 0, 0] ){
     board_base( 0.5, 5.5 );
 }
-translate( [key_pitch_x*8, 50, 0] ){
+translate( [key_pitch_x*8, 0, 0] ){
     board_base( -0.5, 5.5 );
 }
 
 translate( [0, 0, 0] ){
     difference(){
         union(){
+            key( l_row5m_x, row5_y );
+            key( l_row4m_x, row4_y );
+            key( l_row4m_x + 2, row4_y );
+            for( i = [0:2] ) key( l_row3m_x + i, row3_y );
+            for( i = [0:2] ) key( l_row2m_x + i, row2_y );
+            for( i = [0:2] ) key( l_row1m_x + i, row1_y );
+            key( l_row0m_x, row0_y );
             key( l_func5_x, row5_y );
-            key( l_func4a_x, row4_y );
-            key( l_func4b_x, row4_y );
-            key( l_func3a_x, row3_y );
-            key( l_func3b_x, row3_y, 1.5 );
+            key( l_func4_x, row4_y );
+            key( l_func3_x, row3_y, 1.5 );
             key( l_func2_x, row2_y, 1.75 );
             key( l_func1_x, row1_y, 2.25 );
-            key( l_func0_x, row0_y, 1.25 );
             for( i = [0:4] ) key( l_row5_x + i, row5_y );
             for( i = [0:4] ) key( l_row4_x + i, row4_y );
             for( i = [0:4] ) key( l_row3_x + i, row3_y );
             for( i = [0:4] ) key( l_row2_x + i, row2_y );
             for( i = [0:4] ) key( l_row1_x + i, row1_y );
-            key( l_row0_x, row0_y, 1.25 );
-            key( l_row0_x + 1.25, row0_y );
-            key( l_row0_x + 2.25, row0_y );
-            key( l_row0_x + 3.25, row0_y, 1.25);
-            key( l_row0_x + 4.5, row0_y );
+            key( l_func0_x, row0_y, 1.75 );
+            key( l_row0_x + 1.75, row0_y );
+            key( l_row0_x + 2.75, row0_y, 1.25 );
+            key( l_row0_x + 4, row0_y );
+            key( l_row0_x + 5, row0_y, 1.75);
             
             difference(){
                 union(){
-                    wall_x( 1, 7, 6 );
+                    wall_x_right( 1, 7, 6 );
                     wall_y( 1, 5, 6 );
                     wall_x( 0, 1, 5 );
-                    wall_y( 0, 3, 5 );
-                    wall_x( 0, 1, 3 );
-                    wall_y( 1, 1, 3 );
-                    wall_x( 1, 1.5, 1 );
-                    wall_y( 1.5, 0, 1 );
-                    wall_y( 7, 4, 6 );
-                    wall_x( 7, 7.5, 4 );
-                    wall_y( 7.5, 3, 4 );
-                    wall_x( 7.5, 7.75, 3 );
-                    wall_y( 7.75, 2, 3 );
-                    wall_x( 7.75, 8.25, 2 );
-                    wall_y( 8.25, 0, 2 );
-                    wall_x( 1.5, 8.25, 0 );
+                    wall_y( 0, 4, 5 );
+                    wall_x( -1, 0, 4 );
+                    wall_y( -1, 4, 6 );
+                    wall_x( -2, -1, 6 );
+                    wall_y( -2, 1, 6 );
+                    wall_x( -2, -1, 1 );
+                    wall_y( -1, 0, 1 );
+                    wall_x( -1, 0, 0 );
+                    wall_y( 0, 0, 1 );
+                    wall_x( 0, 1, 1 );
+                    wall_y( 1, 0, 1 );
+                    wall_y_right( 7, 4, 6 );
+                    wall_x_bottom( 7, 7.5, 4 );
+                    wall_y_right( 7.5, 3, 4 );
+                    wall_x_bottom( 7.5, 7.75, 3 );
+                    wall_y_right( 7.75, 2, 3 );
+                    wall_x_bottom( 7.75, 8.25, 2 );
+                    wall_y_right( 8.25, 1, 2 );
+                    wall_x_upper_l( 7.75, 8.25, 1 );
+                    wall_y_right( 7.75, 0, 1 );
+                    wall_x_right( 1, 7.75, 0 );
                     
-                    wall_x( 3, 4, 4 );
-                    wall_x( 3, 4, 2 );
+                    wall_y( 4.5, 3, 4 );
+                    wall_y( 2.5, 2, 3 );
                 }
                 through_board_base( 0.5, 5.5 );
                 through_usb( 6, 5.5 );
@@ -109,36 +126,45 @@ translate( [0, 0, 0] ){
     }
 }
 
-
 translate( [key_pitch_x*8, 0, 0] ){
     difference(){
         union(){
-            for( i = [0:8] ) key( r_row5_x + i, row5_y, 1 );
+            for( i = [0:7] ) key( r_row5_x + i, row5_y, 1 );
             for( i = [0:8] ) key( r_row4_x + i, row4_y, 1 );
             for( i = [0:6] ) key( r_row3_x + i, row3_y, 1 );
             for( i = [0:6] ) key( r_row2_x + i, row2_y, 1 );
             for( i = [0:5] ) key( r_row1_x + i, row1_y, 1 );
             key_enter( r_enter_x, row2_y );
-            fill( r_func1_x, row1_y, 0.25 );
-            key( r_func1_x + 0.25, row1_y, 1 );
-            fill( r_func1_x + 1.25, row1_y, 0.5 );
-            key( r_row0_x, row0_y, 1.25 );
-            for( i = [0:6] ) key( r_row0_x + 1.25 + i, row0_y, 1 );
+            key( r_func1_x, row1_y, 1.75 );
+            key( r_row0_x, row0_y, 1.75 );
+            for( i = [0:2] ) key( r_row0_x + 1.75 + i, row0_y, 1 );
+            fill( r_row0_x + 1.75 + 3, row0_y, 1 );
+            key( r_row0_x + 1.25 + 3 + 1.5, row0_y, 1 );
+            fill( r_row0_x + 1.25 + 3 + 2.5, row0_y, 1 );
+
+            translate( [key_pitch_x*5.5, key_pitch_x*0, -23] )
+            cube( [key_pitch_x, key_pitch_y, 20] );
+            translate( [key_pitch_x*7.5, key_pitch_x*0, -23] )
+            cube( [key_pitch_x, key_pitch_y, 20] );
             
             difference(){
                 union(){
-                    wall_x( 0, 9, 6 );
-                    wall_y( 0, 4, 6 );
-                    wall_x( 0, 0.5, 4 );
-                    wall_y( 0.5, 3, 4 );
-                    wall_x( 0.5, 0.75, 3 );
-                    wall_y( 0.75, 2, 3 );
-                    wall_x( 0.75, 1.25, 2 );
-                    wall_y( 1.25, 0, 2 );
-                    wall_y( 9, 1, 6 );
-                    wall_x( 9, 9.5, 1);
-                    wall_y( 9.5, 0, 1 );
-                    wall_x( 1.25, 9.5, 0);
+                    wall_x_left( 0, 8, 6 );
+                    wall_y_left( 0, 4, 6 );
+                    wall_x_upper( 0, 0.5, 4 );
+                    wall_y_left( 0.5, 3, 4 );
+                    wall_x_upper( 0.5, 0.75, 3 );
+                    wall_y_left( 0.75, 2, 3 );
+                    wall_x_upper( 0.75, 1.25, 2 );
+                    wall_y_left( 1.25, 1, 2 );
+                    wall_x_bottom_r( 0.75, 1.25, 1 );
+                    wall_y_left( 0.75, 0, 1 );
+                    wall_y( 8, 5, 6 );
+                    wall_x( 8, 9, 5);
+                    wall_y( 9, 1, 5 );
+                    wall_x( 8.5, 9, 1);
+                    wall_y( 8.5, 0, 1 );
+                    wall_x_left( 0.75, 8, 0);
                     
                     wall_x( 4, 5, 4 );
                     wall_x( 4, 5, 2 );
@@ -153,6 +179,68 @@ translate( [key_pitch_x*8, 0, 0] ){
         rotate( a=-angle, v=[1, 0, 0] )
         translate( [-key_pitch_x*3, -5, -front_height-42] )
         cube( [key_pitch_x*15, key_pitch_y*8, 50] );
+
+        translate( [0, -0.5, 0.17] )
+        rotate( a=-angle, v=[1, 0, 0] )
+        union(){
+            for( i = [5:7] ) key( r_rowm1_x + i, rowm1_y, 1 );
+            wall_y( 5.5, -1, 0 );
+            wall_x( 5.5, 8.5, 0);
+            translate( [1, 1, 0] )
+            wall_y( 8.5, -1, 0 );
+            wall_x( 5.5, 8.5, -1);
+            difference(){
+                union(){
+                    translate( [key_pitch_x*6, key_pitch_x*0.5, -12] )
+                    rotate( [0, -5, 5])
+                    cube( [12.5, 23.5, 20], center=true );
+                    translate( [key_pitch_x*8, key_pitch_x*0.5, -12] )
+                    rotate( [0, 5, -5])
+                    cube( [12.5, 23.5, 20], center=true );
+                }
+            translate( [key_pitch_x*5, -20, -51] )
+            cube( [key_pitch_x*4, key_pitch_y*1, 50] );
+            }
+            translate( [key_pitch_x*6.5, key_pitch_x*-0.5, -25.05] )
+            cube( [key_pitch_x, key_pitch_y, 20] );
+        }
+    }
+}
+
+translate( [key_pitch_x*8, 0, 0] ){
+    difference(){
+        translate( [0, -0.5, 0.17] )
+        rotate( a=-angle, v=[1, 0, 0] )
+        difference(){
+            union(){
+                for( i = [5:7] ) key( r_rowm1_x + i, rowm1_y, 1 );
+                wall_y( 5.5, -1, 0 );
+                wall_x( 5.5, 8.5, 0);
+                wall_y( 8.5, -1, 0 );
+                wall_x( 5.5, 8.5, -1);
+                difference(){
+                    union(){
+                        translate( [key_pitch_x*6, key_pitch_x*0.5, -12.5] )
+                        rotate( [0, -5, 5])
+                        cube( [12, 23, 20], center=true );
+                        translate( [key_pitch_x*8, key_pitch_x*0.5, -12.5] )
+                        rotate( [0, 5, -5])
+                        cube( [12, 23, 20], center=true );
+                    }
+                    translate( [key_pitch_x*5, -20, -50] )
+                    cube( [key_pitch_x*4, key_pitch_y*1, 50] );
+                }
+            }
+            translate( [key_pitch_x*6.5, key_pitch_x*-0.5, -25.05] )
+            cube( [key_pitch_x, key_pitch_y, 20] );
+        }
+        
+        rotate( a=-angle, v=[1, 0, 0] )
+        translate( [key_pitch_x*5, -35, -front_height-42] )
+        cube( [key_pitch_x*4, key_pitch_y*4, 50] );
+        rotate( a=-angle, v=[1, 0, 0] )
+        translate( [key_pitch_x*5, 0.75, -front_height-41] )
+        cube( [key_pitch_x*4, key_pitch_y*2, 50] );
     }
 }
 
@@ -272,6 +360,45 @@ module wall_y( x, y1, y2 ){
     cube( [(key_pitch_x - hole_x)/2, key_pitch_y*(y2 - y1), 50] );
 }
 
+module wall_x_upper( x1, x2, y ){
+    translate( [key_pitch_x*x1, key_pitch_y*y, -50] )
+    cube( [key_pitch_x*(x2 - x1) + ((key_pitch_x - hole_x)/2), (key_pitch_y - hole_y)/2, 50-panel_thick] );
+}
+
+module wall_x_upper_l( x1, x2, y ){
+    translate( [key_pitch_x*x1 - ((key_pitch_x - hole_x)/2), key_pitch_y*y, -50] )
+    cube( [key_pitch_x*(x2 - x1) + ((key_pitch_x - hole_x)/2), (key_pitch_y - hole_y)/2, 50-panel_thick] );
+}
+
+module wall_x_bottom( x1, x2, y ){
+    translate( [key_pitch_x*x1 - ((key_pitch_x - hole_x)/2), key_pitch_y*y - ((key_pitch_y - hole_y)/2), -50] )
+    cube( [key_pitch_x*(x2 - x1) + ((key_pitch_x - hole_x)/2), (key_pitch_y - hole_y)/2, 50-panel_thick] );
+}
+
+module wall_x_bottom_r( x1, x2, y ){
+    translate( [key_pitch_x*x1, key_pitch_y*y - ((key_pitch_y - hole_y)/2), -50] )
+    cube( [key_pitch_x*(x2 - x1) + ((key_pitch_x - hole_x)/2), (key_pitch_y - hole_y)/2, 50-panel_thick] );
+}
+
+module wall_y_left( x, y1, y2 ){
+    translate( [key_pitch_x*x , key_pitch_y*y1, -50] )
+    cube( [(key_pitch_x - hole_x)/2, key_pitch_y*(y2 - y1), 50-panel_thick] );
+}
+
+module wall_y_right( x, y1, y2 ){
+    translate( [key_pitch_x*x - ((key_pitch_x - hole_x)/2), key_pitch_y*y1, -50] )
+    cube( [(key_pitch_x - hole_x)/2, key_pitch_y*(y2 - y1), 50-panel_thick] );
+}
+
+module wall_x_left( x1, x2, y ){
+    translate( [key_pitch_x*x1, key_pitch_y*y - ((key_pitch_y - hole_y)/2)/2, -50] )
+    cube( [key_pitch_x*(x2 - x1) + ((key_pitch_x - hole_x)/2)/2, (key_pitch_y - hole_y)/2, 50] );
+}
+
+module wall_x_right( x1, x2, y ){
+    translate( [key_pitch_x*x1 - ((key_pitch_x - hole_x)/2)/2, key_pitch_y*y - ((key_pitch_y - hole_y)/2)/2, -50] )
+    cube( [key_pitch_x*(x2 - x1) + ((key_pitch_x - hole_x)/2)/2, (key_pitch_y - hole_y)/2, 50] );
+}
 
 
 module through_usb( x, y ){
