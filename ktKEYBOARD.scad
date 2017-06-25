@@ -60,13 +60,6 @@ translate( [key_pitch_x*8, 0, 0] ){
 translate( [0, 0, 0] ){
     difference(){
         union(){
-            key( l_row5m_x, row5_y );
-            key( l_row4m_x, row4_y );
-            key( l_row4m_x + 2, row4_y );
-            for( i = [0:2] ) key( l_row3m_x + i, row3_y );
-            for( i = [0:2] ) key( l_row2m_x + i, row2_y );
-            for( i = [0:2] ) key( l_row1m_x + i, row1_y );
-            key( l_row0m_x, row0_y );
             key( l_func5_x, row5_y );
             key( l_func4_x, row4_y );
             key( l_func3_x, row3_y, 1.5 );
@@ -86,19 +79,7 @@ translate( [0, 0, 0] ){
             difference(){
                 union(){
                     wall_x_right( 1, 7, 6 );
-                    wall_y( 1, 5, 6 );
-                    wall_x( 0, 1, 5 );
-                    wall_y( 0, 4, 5 );
-                    wall_x( -1, 0, 4 );
-                    wall_y( -1, 4, 6 );
-                    wall_x( -2, -1, 6 );
-                    wall_y( -2, 1, 6 );
-                    wall_x( -2, -1, 1 );
-                    wall_y( -1, 0, 1 );
-                    wall_x( -1, 0, 0 );
-                    wall_y( 0, 0, 1 );
-                    wall_x( 0, 1, 1 );
-                    wall_y( 1, 0, 1 );
+                    wall_y( 1, 0, 6 );
                     wall_y_right( 7, 4, 6 );
                     wall_x_bottom( 7, 7.5, 4 );
                     wall_y_right( 7.5, 3, 4 );
