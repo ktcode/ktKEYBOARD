@@ -135,17 +135,16 @@ translate( [key_pitch_x*8, 0, 0] ){
             for( i = [0:6] ) key( r_row2_x + i, row2_y, 1 );
             for( i = [0:5] ) key( r_row1_x + i, row1_y, 1 );
             key_enter( r_enter_x, row2_y );
-            key( r_func1_x, row1_y, 1.75 );
+            key( r_func1_x, row1_y, 1 );
             key( r_row0_x, row0_y, 1.75 );
             for( i = [0:2] ) key( r_row0_x + 1.75 + i, row0_y, 1 );
-            fill( r_row0_x + 1.75 + 3, row0_y, 1 );
-            key( r_row0_x + 1.25 + 3 + 1.5, row0_y, 1 );
-            fill( r_row0_x + 1.25 + 3 + 2.5, row0_y, 1 );
+            fill( r_row0_x + 1.75 + 3, row0_y, 0.5 );
+            for( i = [0:2] ) key( r_row0_x + 1.75 + 3 + 0.5 + i, row0_y, 1 );
 
-            translate( [key_pitch_x*5.5, key_pitch_x*0, -23] )
+            /*translate( [key_pitch_x*5.5, key_pitch_x*0, -23] )
             cube( [key_pitch_x, key_pitch_y, 20] );
             translate( [key_pitch_x*7.5, key_pitch_x*0, -23] )
-            cube( [key_pitch_x, key_pitch_y, 20] );
+            cube( [key_pitch_x, key_pitch_y, 20] );*/
             
             difference(){
                 union(){
@@ -161,10 +160,12 @@ translate( [key_pitch_x*8, 0, 0] ){
                     wall_y_left( 0.75, 0, 1 );
                     wall_y( 8, 5, 6 );
                     wall_x( 8, 9, 5);
-                    wall_y( 9, 1, 5 );
-                    wall_x( 8.5, 9, 1);
-                    wall_y( 8.5, 0, 1 );
-                    wall_x_left( 0.75, 8, 0);
+                    wall_y( 9, 2, 5 );
+                    wall_x( 8.25, 9, 2);
+                    wall_y( 8.25, 1, 2 );
+                    wall_x( 8.25, 9, 1);
+                    wall_y( 9, 0, 1 );
+                    wall_x_left( 0.75, 9, 0);
                     
                     wall_x( 4, 5, 4 );
                     wall_x( 4, 5, 2 );
@@ -180,7 +181,7 @@ translate( [key_pitch_x*8, 0, 0] ){
         translate( [-key_pitch_x*3, -5, -front_height-42] )
         cube( [key_pitch_x*15, key_pitch_y*8, 50] );
 
-        translate( [0, -0.5, 0.17] )
+        /*translate( [0, -0.5, 0.17] )
         rotate( a=-angle, v=[1, 0, 0] )
         union(){
             for( i = [5:7] ) key( r_rowm1_x + i, rowm1_y, 1 );
@@ -203,10 +204,10 @@ translate( [key_pitch_x*8, 0, 0] ){
             }
             translate( [key_pitch_x*6.5, key_pitch_x*-0.5, -25.05] )
             cube( [key_pitch_x, key_pitch_y, 20] );
-        }
+        }*/
     }
 }
-
+/*
 translate( [key_pitch_x*8, 0, 0] ){
     difference(){
         translate( [0, -0.5, 0.17] )
@@ -243,7 +244,7 @@ translate( [key_pitch_x*8, 0, 0] ){
         cube( [key_pitch_x*4, key_pitch_y*2, 50] );
     }
 }
-
+*/
 
 
 
